@@ -33,3 +33,13 @@ describe('Constructor function', () => {
     expect(Vector.len).toBe(18.708286933869708)
   })
 })
+
+describe('Divide function', () => {
+  test('Dividing by zero should throw error', () => {
+    function divide () {
+      Vector.divide(phonyVector)
+    }
+
+    expect(divide).toThrowError(/zero/)
+  })
+})
