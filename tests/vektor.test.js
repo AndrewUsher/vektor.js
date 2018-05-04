@@ -6,6 +6,7 @@ const phonyVector = new Vektor()
 const negativeVector = new Vektor(-2, -5, -1)
 const parallelVector = new Vektor(6, 11, 16)
 const notParallelVector = new Vektor(-6, -11, -16)
+const oppositeVector = new Vektor(-5, -10, -15)
 
 describe('Constructor function', () => {
   test('Vector X should equal this.x', () => {
@@ -136,7 +137,7 @@ describe('isAntiParallel function', () => {
     expect(Vector.isAntiParallel(5)).toBe(false)
   })
 
-  test('Passing in an empty string should return false', () => {
+  test('Passing in a string should return false', () => {
     expect(Vector.isAntiParallel('test')).toBe(false)
   })
 
@@ -146,5 +147,23 @@ describe('isAntiParallel function', () => {
 
   test('Passing in vector that\'s antiparallel should return true', () => {
     expect(Vector.isAntiParallel(notParallelVector)).toBe(true)
+  })
+})
+
+describe('isOpposite function', () => {
+  test('Passing in a number should return false', () => {
+    expect(Vector.isOpposite(5)).toBe(false)
+  })
+
+  test('Passing in a string should return false', () => {
+    expect(Vector.isOpposite('test')).toBe(false)
+  })
+
+  test('Passing in parallel vector should return false', () => {
+    expect(Vector.isOpposite(parallelVector)).toBe(false)
+  })
+
+  test('Passing in vector that\'s opposite should return true', () => {
+    expect(Vector.isOpposite(oppositeVector)).toBe(true)
   })
 })
