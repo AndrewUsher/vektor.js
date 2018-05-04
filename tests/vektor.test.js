@@ -167,3 +167,21 @@ describe('isOpposite function', () => {
     expect(Vector.isOpposite(oppositeVector)).toBe(true)
   })
 })
+
+describe('isEqual function', () => {
+  test('Passing in a number should return false', () => {
+    expect(Vector.isEqual(5)).toBe(false)
+  })
+
+  test('Passing in a string should return false', () => {
+    expect(Vector.isEqual('test')).toBe(false)
+  })
+
+  test('Passing in vector that\'s not equal should return false', () => {
+    expect(Vector.isEqual(parallelVector)).toBe(false)
+  })
+
+  test('Passing in vector that\'s opposite should return true', () => {
+    expect(Vector.isEqual(Vector)).toBe(true)
+  })
+})
