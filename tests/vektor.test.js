@@ -72,3 +72,20 @@ describe('Subtract function', () => {
     expect(Vector.subtract(Vector)).toMatchObject({ x: 0, y: 0, z: 0 })
   })
 })
+
+describe('Divide function', () => {
+  test('Dividing with empty vector should throw error', () => {
+    function divide () {
+      Vector.divide(phonyVector)
+    }
+    expect(divide).toThrowError(/zero/)
+  })
+
+  test('Dividing with negative numbers should work', () => {
+    expect(Vector.divide(negativeVector)).toMatchObject({ x: -2.5, y: -2, z: -15 })
+  })
+
+  test('Dividing with positive numbers should work', () => {
+    expect(Vector.divide(Vector)).toMatchObject({ x: 1, y: 1, z: 1 })
+  })
+})
