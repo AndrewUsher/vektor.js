@@ -130,3 +130,21 @@ describe('isParallel function', () => {
     expect(Vector.isParallel(notParallelVector)).toBe(false)
   })
 })
+
+describe('isAntiParallel function', () => {
+  test('Passing in a number should return false', () => {
+    expect(Vector.isAntiParallel(5)).toBe(false)
+  })
+
+  test('Passing in an empty string should return false', () => {
+    expect(Vector.isAntiParallel('test')).toBe(false)
+  })
+
+  test('Passing in parallel vector should return false', () => {
+    expect(Vector.isAntiParallel(parallelVector)).toBe(false)
+  })
+
+  test('Passing in vector that\'s antiparallel should return true', () => {
+    expect(Vector.isAntiParallel(notParallelVector)).toBe(true)
+  })
+})
