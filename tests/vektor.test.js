@@ -89,3 +89,20 @@ describe('Divide function', () => {
     expect(Vector.divide(Vector)).toMatchObject({ x: 1, y: 1, z: 1 })
   })
 })
+
+describe('Multiply function', () => {
+  test('Multiplying with empty vector should throw error', () => {
+    function multiply () {
+      Vector.multiply(phonyVector)
+    }
+    expect(multiply).toThrowError(/zero/)
+  })
+
+  test('Multiplying with negative numbers should work', () => {
+    expect(Vector.multiply(negativeVector)).toMatchObject({ x: -10, y: -50, z: -15 })
+  })
+
+  test('Multiplying with positive numbers should work', () => {
+    expect(Vector.multiply(Vector)).toMatchObject({ x: 25, y: 100, z: 225 })
+  })
+})
