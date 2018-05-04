@@ -58,3 +58,17 @@ describe('Add function', () => {
     expect(Vector.add(Vector)).toMatchObject({ x: 10, y: 20, z: 30 })
   })
 })
+
+describe('Subtract function', () => {
+  test('Subtracting with empty vector should return same thing', () => {
+    expect(Vector.subtract(phonyVector)).toMatchObject(Vector)
+  })
+
+  test('Subtracting with negative numbers should work', () => {
+    expect(Vector.subtract(negativeVector)).toMatchObject({ x: 7, y: 15, z: 16 })
+  })
+
+  test('Subtracting with positive numbers should work', () => {
+    expect(Vector.subtract(Vector)).toMatchObject({ x: 0, y: 0, z: 0 })
+  })
+})
