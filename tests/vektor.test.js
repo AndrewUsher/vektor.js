@@ -4,6 +4,8 @@ const Vector = new Vektor(5, 10, 15)
 // Vector with no values passed in
 const phonyVector = new Vektor()
 const negativeVector = new Vektor(-2, -5, -1)
+const parallelVector = new Vektor(6, 11, 16)
+const notParallelVector = new Vektor(-6, -11, -16)
 
 describe('Constructor function', () => {
   test('Vector X should equal this.x', () => {
@@ -104,5 +106,27 @@ describe('Multiply function', () => {
 
   test('Multiplying with positive numbers should work', () => {
     expect(Vector.multiply(Vector)).toMatchObject({ x: 25, y: 100, z: 225 })
+  })
+})
+
+describe('isParallel function', () => {
+  test('Passing in empty vector should return false', () => {
+    expect(Vector.isParallel(phonyVector)).toBe(false)
+  })
+
+  test('Passing in a number should return false', () => {
+    expect(Vector.isParallel(5)).toBe(false)
+  })
+
+  test('Passing in an empty string should return false', () => {
+    expect(Vector.isParallel('test')).toBe(false)
+  })
+
+  test('Passing in parallel vector should return true', () => {
+    expect(Vector.isParallel(parallelVector)).toBe(true)
+  })
+
+  test('Passing in vector that\'s not parallel should return false', () => {
+    expect(Vector.isParallel(notParallelVector)).toBe(false)
   })
 })
