@@ -3,6 +3,7 @@ const Vektor = require('../lib/vektor')
 const Vector = new Vektor(5, 10, 15)
 // Vector with no values passed in
 const phonyVector = new Vektor()
+const negativeVector = new Vektor(-2, -5, -1)
 
 describe('Constructor function', () => {
   test('Vector X should equal this.x', () => {
@@ -41,5 +42,19 @@ describe('Divide function', () => {
     }
 
     expect(divide).toThrowError(/zero/)
+  })
+})
+
+describe('Add function', () => {
+  test('Adding with empty vector should return same thing', () => {
+    expect(Vector.add(phonyVector)).toMatchObject(Vector)
+  })
+
+  test('Adding with negative numbers should work', () => {
+    expect(Vector.add(negativeVector)).toMatchObject({ x: 3, y: 5, z: 14 })
+  })
+
+  test('Adding with positive numbers should work', () => {
+    expect(Vector.add(Vector)).toMatchObject({ x: 10, y: 20, z: 30 })
   })
 })
